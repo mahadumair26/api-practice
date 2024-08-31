@@ -17,11 +17,11 @@ app.listen(port,()=>{
 })
 
 app.get("/",async (req,res)=>{
-
+    
     try {
         const result = await axios.get(`${apiUrl}/random`);
-        console.log(result);
-        res.render("index.ejs",{secret:JSON.stringify(result.data.secret)});
+        // console.log(result.data);
+        res.render("index.ejs",{secret:JSON.stringify(result.data.secret),user:JSON.stringify(result.data.username)});
     } catch (error) {
         console.log(error);
         
